@@ -1,0 +1,14 @@
+.grey_class {
+  width: 100px;
+  height: 100px;
+  background-color: grey;
+  margin: 10px;
+}
+
+
+.orange_class {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  margin: 10px;
+}
