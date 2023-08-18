@@ -1,14 +1,43 @@
-.grey_class {
-  width: 100px;
-  height: 100px;
-  background-color: grey;
-  margin: 10px;
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.chessboard {
+    width: 640px;
+    height: 640px;
+    margin: 20px;
+    border: 25px solid #333;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
 
 
-.orange_class {
-  width: 100px;
-  height: 100px;
-  background-color: orange;
-  margin: 10px;
+
+
+.black {
+  float: left;
+  width: 80px;
+  height: 80px;
+  background-color: #999;
+  font-size: 50px; 
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+
+.white {
+  float: left;
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  font-size: 50px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
 }
