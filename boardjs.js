@@ -8,25 +8,95 @@
 //If you want to represent the black queen (♛), you can replace &#9813; with &#9819; in the HTML code.
 //
 //
+// Modify the content of a specific cell
+//divArray[0][1].textContent = "Modified";
+
+// Modify the style of a specific cell
+//divArray[1][2].style.backgroundColor = "lightblue";
+
+var myChessBoard = [];
+    
+
 
 function initBoard() {
-var listen = document.getElementById("sq1");
-listen.addEventListener("mouseover", changeColor);
-listen.addEventListener("onclick", placeQueen);
 
-var listen = document.getElementById("sq2");
-listen.addEventListener("mouseover", changeColor);
-listen.addEventListener("onclick", placeQueen);
+console.log("I am in initBoard");
+
+
+var parentDiv = document.getElementById("chessboard");
+var innerDivs = parentDiv.querySelectorAll("div");
+
+// Iterate through the grid and populate the array
+var rowCount = 8;
+var colCount = 8;
+
+for (var row = 0; row < rowCount; row++) {
+myChessBoard[row] = [];
+  for (var col = 0; col < colCount; col++) {
+    myChessBoard[row][col] = innerDivs[row * colCount + col];
+    console.log(myChessBoard);
+    console.log(row,col);
+  }
 }
 
 
-function changeColor() {
-  document.getElementById("sq1").style.backgroundColor = "green";
+const myBoard = document.getElementById("chessboard");
+
+console.log(myBoard);
+console.log("BoardID Printed Above");
+    myBoard.addEventListener('click', function(event)
+        {
+            placeQueen(event);
+            console.log(event);
+        });
+
+    myBoard.addEventListener('contextmenu', function(event)
+        {
+           // printQueen();
+            console.log(event);
+            printBoard();
+        });
+
+
+}//initBoard
+
+function printBoard()
+{
+// Iterate through the grid and populate the array
+var rowCount = 8;
+var colCount = 8;
+for (var row = 0; row < rowCount; row++) 
+  for (var col = 0; col < colCount; col++) 
+  console.log("Content of div at row", row, "and column", col + ":", myChessBoard[row][col].textContent);
+}//printBoard
+
+
+
+function placeQueen(event)
+    {
+    console.log(myChessBoard);
+    console.log(event);
+    console.log(event.target.innerHTML);
+    console.log(event.target.id);
+    event.target.innerHTML ="&#9819" 
+    console.log("Clicking!!!!!!!");
+}//placeQueen
+
     
-}
 
 
-function placeQueen() {
-  document.getElementById("sq1").style.backgroundColor = "green";
-  sq1.innerHTML = "&#9813";
-}
+
+//
+//listen.addEventListener("mouseover", changeColor);
+//console.log("After mouseover")
+//    listen.addEventListener("onclick", placeQueen);
+//console.log("After placeQueen")
+//function changeColor() {
+//    console.log("I am in changeColor")
+//    document.getElementById("00").style.backgroundColor = "green";
+//}
+//function placeQueen() {
+//  console.log("I am in placeQueen")
+//  document.getElementById("00").style.backgroundColor = "green";
+//  sq1.innerHTML = "&#9813";
+//}
