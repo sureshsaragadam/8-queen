@@ -1,99 +1,36 @@
+// 8 Queen Puzzle
 //
-//Unicode : U+2655
-//HTML Code : ♕
-//Unicode : U+265B
-//HTML Code : ♛
-//
-//
-//If you want to represent the black queen (♛), you can replace &#9813; with &#9819; in the HTML code.
-//
-//
-// Modify the content of a specific cell
-//divArray[0][1].textContent = "Modified";
-
-// Modify the style of a specific cell
-//divArray[1][2].style.backgroundColor = "lightblue";
-
-var myChessBoard = [];
-    
-
+var brd = [];
+var no_of_queens_placed = 0;    
+let queen = "&#9819";
 
 function initBoard() {
 
-console.log("I am in initBoard");
+console.log("I am in initBoard ...");
 
 
 var parentDiv = document.getElementById("chessboard");
 var innerDivs = parentDiv.querySelectorAll("div");
-//console.log(innerDivs);
 // Iterate through the grid and populate the array
-var rowCount = 8;
-var colCount = 8;
 
-for (var row = 0; row < rowCount; row++) {
-myChessBoard[row] = [];
-  for (var col = 0; col < colCount; col++) {
-    myChessBoard[row][col] = innerDivs[row * colCount + col];
-//    console.log(row,col);
-
-    myChessBoard[row][col].addEventListener('click', function(event)
+for (var i = 0; i < 8; i++) {
+brd[i] = [];
+  for (var j = 0; j < 8; j++) {
+    brd[i][j] = innerDivs[i * 8 + j];
+    brd[i][j].addEventListener('click', function(e)
         {
-            placeQueen(event);
-  //          console.log(event);
+            placeOrDeleteQueen(e);
         });
   }
 }
 
 const myBoard = document.getElementById("chessboard");
-//console.log(myBoard);
-//console.table(myBoard);
-//console.table(myChessBoard.txtContent);
 
-    myBoard.addEventListener('contextmenu', function(event)
+    myBoard.addEventListener('contextmenu', function(cme)
         {
-            printBoard(event);
+            printBoard(cme);
         });
 }//initBoard
-
-
-
-
-//const myBoard = document.getElementById("chessboard");
-
-//console.log(myBoard);
-//console.log("BoardID Printed Above");
-
-
-//innerDivs.addEventListener('click', function(event)
-//        {
-//            placeQueen(event);
-//            console.log(event);
-//        });
-
-//    innerDivs.addEventListener('contextmenu', function(event)
-//        {
-//           // printQueen();
-//            console.log(event);
-//            printBoard();
-//        });
-
-
-//const myBoard = document.getElementById("chessboard");
-//
-//console.log(myBoard);
-//console.log("BoardID Printed Above");
-//    myBoard.addEventListener('click', function(event)
-//        {
-//            placeQueen(event);
-//            console.log(event);
-//        });
-//
-//    myBoard.addEventListener('contextmenu', function(event)
-//        {
-//           // printQueen();
-//            console.log(event);
-//            printBoard();
-//        });
 
 
 function printBoardArray()
@@ -101,57 +38,181 @@ function printBoardArray()
 
    console.log("In printBoardArray");
     // Extract information for display
-    const dataToDisplay = myChessBoard.map(row => row.map(node => node.textContent !== "" ? node.textContent : "-"));
+    const dataToDisplay = brd.map(row => row.map(node => node.textContent !== "" ? node.textContent : "-"));
     console.table(dataToDisplay);
-    // const dataToDisplay = myChessBoard.map(row => row.map(node => {
-    //  return {
-    //   // TagName: node.tagId,
-    //   Content: node.textContent,
-    //    // Add more properties as needed
-    //  };
-    //}));
-
-    // Display the data using console.table()
 }
 
 function printBoard()
 {
-// Iterate through the grid and populate the array
-var rowCount = 8;
-var colCount = 8;
-for (var row = 0; row < rowCount; row++) 
-  for (var col = 0; col < colCount; col++) 
-  console.log("Content of div at row", row, "and column", col + ":", myChessBoard[row][col].textContent);
+for (var i = 0; i < 8; i++) 
+  for (var j = 0; j < 8; j++) 
+  console.log("Content of div at row ", i, "and column ", j, ":", brd[i][j].textContent);
 }
 
 
 
 function placeQueen(event)
     {
-    //console.log(myChessBoard);
-    //console.log(event);
-    //console.log(event.target.innerHTML);
-    //console.log(event.target.id);
     event.target.innerHTML ="&#9819" 
-    console.log("Clicking!!!!!!!");
+    console.log("Clicking...!!");
     printBoardArray();
-    }//placeQueen
+    }//placeQueengg
+
+
+function placeOrDeleteQueen(event)
+    {
+        let point = event.target.id; 
+        console.log(event);
+        console.log("To print tagId", event.target.id);
+        //let feasible = false;
+        let feasible_pt = check_for_feasibility(point);
+        console.log("Completed feasibility test..for Point :", event.target.id, "retrutn valuge :",feasible_pt);
+        console.log(feasible_pt);
+        if (event.target.innerHTML == "" && feasible_pt)
+        {
+            console.log("In Click Event, Placing Queen at Point :", event.target.id);
+            event.target.innerHTML = "&#9819"; 
+        }
+        else if (event.target.innerHTML == "" && !feasible_pt)
+        {
+            alert("NOT a Feasible point !");
+        }
+        else
+        {
+            event.target.innerHTML = ""; 
+            console.log("In Click Event, Deleting Queen !!!!!!");
+        }
+    printBoardArray();
+    }// palaceDeleteQueen
 
     
+function check_for_feasibility(pt)
+{
+ 
+ console.log("In Checking Feasibility to place the Queen @",pt)
+ var r = Math.floor(pt / 10);
+ var c = pt % 10;
+ console.log("First digit:", r);   // Output: First digit: 2
+ console.log("Second digit:", c); // Output: Second digit: 4
+ 
+
+ if (row(r) || col(c) || fdu(r,c) || fdd(r,c) || bdu(r,c) || bdd(r,c))
+    {
+        console.log("Queen Fund, not feasible ");
+   return false;
+    }
+        else
+    {
+    
+        console.log("Queen not Fund, feasible ");
+   return true;
+    }
+    }
+
+//checking entire row
+function row(r)
+    {
+            console.log("In Checking Row...: ",r);
+            for (var i=0; i<8; i++)
+            {
+             console.log("Checking in Progress..!", brd[r][i].innerHTML);
+             console.dir();
+                if (brd[r][i].textContent === "♛") 
+                    {
+                    console.log("found the queen:",brd[r][i].innerHTML);
+                    return true;
+                    }
+            }
+   return false; 
+    }
+
+//checking entire column
+function col(c)
+{
+            console.log("In Checking Row...: ",c);
+            for (var i=0; i<8; i++)
+            {
+             console.log("Checking in Progress..!", brd[i][c].innerHTML);
+             console.dir();
+                if (brd[i][c].textContent === "♛") 
+                    {
+                    console.log("found the queen:",brd[i][c].innerHTML);
+                    return true;
+                    }
+            }
+   return false 
+}
 
 
 
-//
-//listen.addEventListener("mouseover", changeColor);
-//console.log("After mouseover")
-//    listen.addEventListener("onclick", placeQueen);
-//console.log("After placeQueen")
-//function changeColor() {
-//    console.log("I am in changeColor")
-//    document.getElementById("00").style.backgroundColor = "green";
-//}
-//function placeQueen() {
-//  console.log("I am in placeQueen")
-//  document.getElementById("00").style.backgroundColor = "green";
-//  sq1.innerHTML = "&#9813";
-//}
+//checking right diaonal up path
+function fdu(n,m)
+{
+       console.log("In Checking Diagonal Right up for point: (",n,m,")");
+	while ((n >= 0) && (m < 8))
+	{	
+		if (brd[n][m].textContent === "♛")
+		return true;
+		else
+		{
+		n=n-1;
+		m=m+1;
+		}
+	}
+return false;	   
+}
+
+//checking right diaonal down path
+function fdd(n,m)
+{
+       console.log("In Checking Diagonal Right Down for point: (",n,m,")");
+	while ((n < 8) && (m >= 0))
+	{	
+		if (brd[n][m].textContent === "♛")
+		return true;
+		else
+		{
+		n=n+1;
+		m=m-1;
+		}
+	}
+return false;	   
+}
+
+
+
+//checking left diaonal up path
+function bdu(n,m)
+{
+       console.log("In Checking Diagonal Left up for point: (",n,m,")");
+	while ((n >= 0) && (m >= 0))
+	{	
+		if (brd[n][m].textContent === "♛")
+		return true;
+		else
+		{
+		n=n-1;
+		m=m-1;
+		}
+	}
+return false;	   
+}
+
+//checking left diaonal down path
+function bdd(n,m)
+{
+       console.log("In Checking Diagonal Left Down for point: (",n,m,")");
+	while ((n < 8) && (m < 8))
+	{	
+		if (brd[n][m].textContent === "♛")
+		return true;
+		else
+		{
+		n=n+1;
+		m=m+1;
+		}
+	}
+return false;	   
+}
+
+
