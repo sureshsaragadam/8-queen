@@ -1,7 +1,7 @@
 // 8 Queen Puzzle
 //
 var brd = [];
-var no_of_queens_placed = 0;    
+var total = 0;    
 let queen = "&#9819";
 
 function initBoard() {
@@ -59,6 +59,8 @@ function placeQueen(event)
     }//placeQueengg
 
 
+
+
 function placeOrDeleteQueen(event)
     {
         let point = event.target.id; 
@@ -72,18 +74,32 @@ function placeOrDeleteQueen(event)
         {
             console.log("In Click Event, Placing Queen at Point :", event.target.id);
             event.target.innerHTML = "&#9819"; 
+            total = total + 1;
+            console.log("Total Queens Place :",total);
+            if (total == 8)
+            {
+            alert("You Solved the Puzzle..");
+            document.getElementById("winningAudio").play();
+            }
         }
         else if (event.target.innerHTML == "" && !feasible_pt)
         {
-            alert("NOT a Feasible point !");
+//           event.target.style.backgroundColor = "red";
+                    console.log("error")
+             document.getElementById("errorAudio").play();
         }
         else
         {
             event.target.innerHTML = ""; 
-            console.log("In Click Event, Deleting Queen !!!!!!");
+            total = total - 1;
+
+            console.log("In Click Event, Deleting Queen!");
+            console.log("Total Queens Place :",total);
         }
     printBoardArray();
     }// palaceDeleteQueen
+
+
 
     
 function check_for_feasibility(pt)
