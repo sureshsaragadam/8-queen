@@ -40,6 +40,50 @@ body {
 }
 }
 
+
+
+@media only screen and (max-device-width: 650px) {
+  /* Styles */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.chessboard {
+    width: 320px;
+    height: 320px;
+    border: 12px solid #333;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.black {
+  float: left;
+  width: 40px;
+  height: 40px;
+  background-color: #999;
+  font-size: 25px; 
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.white {
+  float: left;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  font-size: 25px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+}
+
+
 @media only screen and (min-device-width: 768px) {
   /* Styles */
 body {
