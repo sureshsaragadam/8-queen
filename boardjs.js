@@ -78,7 +78,9 @@ function placeOrDeleteQueen(event)
             console.log("Total Queens Place :",total);
             if (total == 8)
             {
-            alert("You Solved the Puzzle..");
+            let message=document.getElementById("bottomMessage");
+            message.innerHTML="You Solved the Puzzle!";
+           // alert("You Solved the Puzzle..");
             document.getElementById("winningAudio").play();
             }
         }

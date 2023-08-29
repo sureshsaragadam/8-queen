@@ -13,10 +13,20 @@
  <audio src="error.mp3" id="errorAudio"></audio>	  
  <audio src="kanjira.mp3" id="winningAudio"></audio>	  
    <h3 align="center">8-Queen Puzzle</h3>
-   <h3 align="center">Try placing 8-Queen, you know there are 12 unique solutions. </h3>
+   <h3 align="center">Try placing total 8 Queen</h3>
 
    <style>
  /* Styling for the fullscreen button */
+  #bottomMessage {
+    background-color: lightgray;
+    text-align: center;
+    
+    /* Positioning */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
   #fullscreenButton {
     padding: 10px 20px;
     background-color: brown;
@@ -25,11 +35,16 @@
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
+    
+    /* Positioning */
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
   }
 </style>
 
 
-   <button id="fullscreenButton" style="float: right;" >Go Fullscreen</button>
+   <button id="fullscreenButton" >Go Fullscreen</button>
 
 
   <script>
@@ -122,8 +137,13 @@
 	<div class="black" id="76"></div>
 	<div class="white" id="77"></div>
   </div> 
-  </body>
+  
 
+  </body>
+    
+   <div id="bottomMessage">
+        Please Try Once!
+    </div>
 
 
   <script>
