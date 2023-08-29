@@ -38,7 +38,7 @@ body {
 }
 
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1080px) {
   /* Styles */
 body {
   margin: 0;
@@ -82,7 +82,7 @@ body {
 
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 786px) {
   /* Styles */
 body {
   margin: 0;
