@@ -12,6 +12,42 @@
   <body>
  <audio src="error.mp3" id="errorAudio"></audio>	  
  <audio src="kanjira.mp3" id="winningAudio"></audio>	  
+   <h3 align="center">8-Queen Puzzle</h3>
+   <h3 align="center">Try placing 8-Queen, you know there are 12 unique solutions. </h3>
+
+   <style>
+ /* Styling for the fullscreen button */
+  #fullscreenButton {
+    padding: 10px 20px;
+    background-color: brown;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+</style>
+
+
+   <button id="fullscreenButton" style="float: right;" >Go Fullscreen</button>
+
+
+  <script>
+    const fullscreenButton = document.getElementById('fullscreenButton');
+
+    fullscreenButton.addEventListener('click', () => {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
+        document.documentElement.mozRequestFullScreen();
+      } else if (document.documentElement.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        document.documentElement.webkitRequestFullscreen();
+      } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
+        document.documentElement.msRequestFullscreen();
+      }
+    });
+  </script>
+
   <div class="chessboard" id="chessboard">
 	<!-- 1st -->
 	<div class="white" id="00"></div>
