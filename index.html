@@ -27,6 +27,21 @@
     width: 100%;
   }
 
+  #restartButton {
+    padding: 10px 20px;
+    background-color: grey;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    
+    /* Positioning */
+    position: fixed;
+    bottom: 40px;
+    Left: 20px;
+  }
+
   #fullscreenButton {
     padding: 10px 20px;
     background-color: brown;
@@ -45,6 +60,7 @@
 
 
    <button id="fullscreenButton" >Go Fullscreen</button>
+   <button id="restartButton" >Restart</button>
 
 
   <script>
@@ -63,6 +79,19 @@
     });
   </script>
 
+<script>
+    // Get a reference to the restart button
+    var restartButton = document.getElementById("restartButton");
+
+    // Add a click event listener to the button
+    restartButton.addEventListener("click", function() {
+        // Reload the current page
+        location.reload();
+    });
+</script>
+
+
+  
   <div class="chessboard" id="chessboard">
 	<!-- 1st -->
 	<div class="white" id="00"></div>
