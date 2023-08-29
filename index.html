@@ -11,7 +11,7 @@
   </head>
   <body>
  <audio src="error.mp3" id="errorAudio"></audio>	  
- <audio src="kanjira.mp3" id="winningAudio"></audio>	  
+ <audio src="kanjiraedit.mp3" id="winningAudio"></audio>	  
    <h3 align="center">8-Queen Puzzle</h3>
    <h3 align="center">Try placing total 8 Queen</h3>
 
@@ -27,6 +27,20 @@
     width: 100%;
   }
 
+  #restartButton {
+    padding: 10px 20px;
+    background-color: grey;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    
+    /* Positioning */
+    position: fixed;
+    bottom: 40px;
+    left: 20px;
+  }
   #fullscreenButton {
     padding: 10px 20px;
     background-color: brown;
@@ -45,6 +59,7 @@
 
 
    <button id="fullscreenButton" >Go Fullscreen</button>
+   <button id="restartButton" >Restart</button>
 
 
   <script>
@@ -62,6 +77,18 @@
       }
     });
   </script>
+
+  <script>
+    // Get a reference to the restart button
+    var restartButton = document.getElementById("restartButton");
+
+    // Add a click event listener to the button
+    restartButton.addEventListener("click", function() {
+        // Reload the current page
+        location.reload();
+    });
+   </script>
+
 
   <div class="chessboard" id="chessboard">
 	<!-- 1st -->
