@@ -9,7 +9,6 @@ body {
 .chessboard {
     width: 320px;
     height: 320px;
-    margin: 10px;
     border: 12px solid #333;
     position: absolute;
     text-align: center;
@@ -51,7 +50,6 @@ body {
 .chessboard {
     width: 480px;
     height: 480px;
-    margin: 15px;
     border: 16px solid #333;
     position: absolute;
     text-align: center;
@@ -96,7 +94,6 @@ body {
 .chessboard {
     width: 640px;
     height: 640px;
-    margin: 20px;
     border: 25px solid #333;
     position: absolute;
     text-align: center;
