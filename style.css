@@ -1,3 +1,93 @@
+
+@media only screen and (min-device-width: 360px)  {
+  /* Styles */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.chessboard {
+    width: 320px;
+    height: 320px;
+    margin: 10px;
+    border: 12px solid #333;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.black {
+  float: left;
+  width: 40px;
+  height: 40px;
+  background-color: #999;
+  font-size: 25px; 
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.white {
+  float: left;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  font-size: 25px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+}
+
+@media only screen and (min-device-width: 786px) {
+  /* Styles */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.chessboard {
+    width: 480px;
+    height: 480px;
+    margin: 15px;
+    border: 16px solid #333;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.black {
+  float: left;
+  width: 60px;
+  height: 60px;
+  background-color: #999;
+  font-size: 32px; 
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.white {
+  float: left;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  font-size: 32px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+}
+
+
+
+
+
+@media only screen and (min-device-width: 1366px) and (max-device-width: 2560) {
 body {
   margin: 0;
   padding: 0;
@@ -13,11 +103,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
 }
-
-
-
 
 .black {
   float: left;
@@ -30,7 +116,6 @@ body {
   display: table-cell;
 }
 
-
 .white {
   float: left;
   width: 80px;
@@ -40,4 +125,5 @@ body {
   text-align: center;
   vertical-align: middle;
   display: table-cell;
+}
 }
