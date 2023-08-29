@@ -1,71 +1,127 @@
-/* Common styles for all devices and orientations */
+
+@media screen and (min-device-width: 320px) and (max-device-width: 767px){
+  /* Styles */
 body {
   margin: 0;
   padding: 0;
 }
 
-/* Common styles for all chessboards */
 .chessboard {
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    width: 320px;
+    height: 320px;
+    border: 12px solid #333;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.black,
-.white {
+.black {
   float: left;
+  width: 40px;
+  height: 40px;
+  background-color: #999;
+  font-size: 25px; 
   text-align: center;
   vertical-align: middle;
   display: table-cell;
 }
 
-/* Mobile styles */
-@media screen and (max-width: 767px) {
-  .chessboard {
-    width: 320px;
-    height: 320px;
-    border: 12px solid #333;
-  }
-
-  .black,
-  .white {
-    width: 40px;
-    height: 40px;
-    font-size: 25px;
-  }
+.white {
+  float: left;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  font-size: 25px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
 }
 
-/* Tablet portrait and landscape styles */
-@media screen and (min-width: 768px) and (max-width: 1365px) {
-  .chessboard {
+
+@media screen and (min-device-width: 768px) {
+  /* Styles */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.chessboard {
     width: 480px;
     height: 480px;
     border: 16px solid #333;
-  }
-
-  .black,
-  .white {
-    width: 60px;
-    height: 60px;
-    font-size: 32px;
-  }
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Laptop and desktop styles */
-@media screen and (min-width: 1366px) {
-  .chessboard {
+.black {
+  float: left;
+  width: 60px;
+  height: 60px;
+  background-color: #999;
+  font-size: 32px; 
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.white {
+  float: left;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  font-size: 32px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+}
+
+
+
+
+
+@media screen and (min-device-width: 1366px) {
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.chessboard {
     width: 640px;
     height: 640px;
     border: 25px solid #333;
-  }
-
-  .black,
-  .white {
-    width: 80px;
-    height: 80px;
-    font-size: 50px;
-  }
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
+.black {
+  float: left;
+  width: 80px;
+  height: 80px;
+  background-color: #999;
+  font-size: 50px; 
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.white {
+  float: left;
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  font-size: 50px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+}
