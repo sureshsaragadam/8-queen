@@ -40,7 +40,7 @@ body {
 }
 }
 
-@media only screen and (min-device-width: 786px) {
+@media only screen and (min-device-width: 850px) {
   /* Styles */
 body {
   margin: 0;
